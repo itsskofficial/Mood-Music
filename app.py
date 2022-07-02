@@ -1,7 +1,6 @@
 from cv2 import *
 from flask import *
 from matplotlib import *
-from functions import *
 
 app= Flask (__name__)
 
