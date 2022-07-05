@@ -1,8 +1,5 @@
 import cv2
 import fer
-import pandas
-import numpy
-import matplotlib
 
 class VideoCamera(object):
     def __init__(self):
@@ -12,12 +9,15 @@ class VideoCamera(object):
         self.video.releast()
 
     def get_frame(self):
-        ret,frame=self.video.read()
-        ret,jpeg=cv2.imencode('.jpg',frame)
-        return jpeg.tobytes()
+        ret,self.frame=self.video.read()
+        ret,self.jpeg=cv2.imencode('.jpg',self.frame)
+        return self.jpeg.tobytes()
 
     def recognize_emotions(self):
-        
+        emo_detector=fer.FER(mtcnn=True)
+        captured_emotions=emo_detector.detect_emotions(self.jpeg)
+        dominant_emotion,emotion_score=emo_detector.top_emotion(self.jpeg)
+        return dominant_emotion
 
     
         

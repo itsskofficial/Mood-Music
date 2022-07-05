@@ -14,6 +14,9 @@ def home_page():
 def video_feed():
     return Response(generate_camera(VideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/emotion')
+def emotion():
+
 @app.route('/capture')
 def capture_page():
     return render_template("capture.html")
