@@ -16,6 +16,7 @@ def video_feed():
 
 @app.route('/emotion')
 def emotion():
+    return Response(recogni)
 
 @app.route('/capture')
 def capture_page():
