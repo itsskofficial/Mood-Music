@@ -11,6 +11,6 @@
         Now let's detect your face
     </h1>
     <img id="camera" src="{{url_for('video_feed')}}">
-    <h2 id="emotion" class="emotion">{{dominant_emotion}}</h2>
+    <h2 id="emotion" class="emotion">{{url_for('return_emotion')}}</h2>
 </body>
 </html>

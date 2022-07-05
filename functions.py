@@ -10,12 +10,16 @@ def generate_camera(camera):
         frame = camera.get_frame()
         yield (b"--frame\r\n" b"Content-Type:image/jpeg\r\n\r\n" + frame + b"\r\n\r\n")
     dominant_emotion=recognize_emotions(frame)
-    yield(b"--text\r\n" b"Content-Type:text\r\n\r\n" + dominant_emotion + b"\r\n\r\n") 
+    return_emotion(dominant_emotion)
+     
 
 def recognize_emotions(frame):
     emo_detector=fer.FER(mtcnn=True)
     dominant_emotion,emotion_score=emo_detector.top_emotion(frame)
     return dominant_emotion
+
+def return_emotion(dominant_emotion):
+    yield dominant_emotion
 
 def playlist(dominant_emotion):
     if dominant_emotion=="Anger":

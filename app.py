@@ -14,15 +14,11 @@ def home_page():
 def video_feed():
     return Response(generate_camera(VideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
 def return_emotion():
-    return
-
-#@app.route('/emotion')
-#def emotion():
-    return Response(recogni)
+    return Response(return_emotion())
 
 @app.route('/capture')
 def capture_page():
-    return render_template("capture.html", emotion = recognize_emotions, playlist)
+    return render_template("capture.html")
 
 if __name__=="__main__":
     app.run(debug=True, port=5000)
