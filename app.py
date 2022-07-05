@@ -12,7 +12,7 @@ def home_page():
 
 @app.route('/capture')
 def video_feed():
-    return Response(generate_camera(VideoCamera()))
+    return Response(generate_camera(VideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/captur')
 def recognize_emotion():
