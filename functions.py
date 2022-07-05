@@ -15,13 +15,13 @@ def generate_camera(camera):
 
 def recognize_emotions(frame):
     emo_detector=fer.FER(mtcnn=True)
-    dominant_emotion,emotion_score=emo_detector.top_emotion(frame)
+    dominant_emotion=emo_detector.top_emotion(frame)
     return dominant_emotion
 
 def return_emotion(dominant_emotion):
     yield dominant_emotion
 
-def playlist(dominant_emotion):
-    if dominant_emotion=="Anger":
+#def playlist(dominant_emotion):
+   # if dominant_emotion=="Anger":
 
         
