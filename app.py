@@ -1,6 +1,8 @@
 from cv2 import *
 from flask import *
 from matplotlib import *
+from camera import *
+from functions import *
 
 app= Flask (__name__)
 
@@ -9,6 +11,10 @@ def home_page():
     return render_template("index.html")
 
 @app.route('/capture')
+def video_feed():
+    return Response(generate_camera(VideoCamera()))
+
+@app.route('/captur')
 def recognize_emotion():
     # initialize the camera
     # If you have multiple camera connected with 
