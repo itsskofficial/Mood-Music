@@ -1,4 +1,3 @@
-from calendar import EPOCH
 from camera import *
 from cv2 import *
 from time import *
