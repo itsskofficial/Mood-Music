@@ -10,12 +10,16 @@ app= Flask (__name__)
 def home_page():
     return render_template("index.html")
 
-@app.route('/capture')
+@app.route('/videocamera')
 def video_feed():
     return Response(generate_camera(VideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/captur')
-def recognize_emotion():
+@app.route('/capture')
+def capture_page():
+    return render_template("capture.html")
+
+#@app.route('/captur')
+#def recognize_emotion():
     # initialize the camera
     # If you have multiple camera connected with 
     # current device, assign a value in cam_port 
