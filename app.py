@@ -13,7 +13,8 @@ def home_page():
 @app.route('/videocamera')
 def video_feed():
     return Response(generate_camera(VideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
-    
+def return_emotion():
+    return
 
 #@app.route('/emotion')
 #def emotion():

@@ -10,7 +10,7 @@ def generate_camera(camera):
         frame = camera.get_frame()
         yield (b"--frame\r\n" b"Content-Type:image/jpeg\r\n\r\n" + frame + b"\r\n\r\n")
     dominant_emotion=recognize_emotions(frame)
-    
+    yield(b"--text\r\n" b"Content-Type:text\r\n\r\n" + dominant_emotion + b"\r\n\r\n") 
 
 def recognize_emotions(frame):
     emo_detector=fer.FER(mtcnn=True)
