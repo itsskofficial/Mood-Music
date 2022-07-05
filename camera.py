@@ -13,11 +13,7 @@ class VideoCamera(object):
         ret,self.jpeg=cv2.imencode('.jpg',self.frame)
         return self.jpeg.tobytes()
 
-    def recognize_emotions(self):
-        emo_detector=fer.FER(mtcnn=True)
-        captured_emotions=emo_detector.detect_emotions(self.jpeg)
-        dominant_emotion,emotion_score=emo_detector.top_emotion(self.jpeg)
-        return dominant_emotion
+    
 
     
         

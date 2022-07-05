@@ -13,6 +13,7 @@ def home_page():
 @app.route('/videocamera')
 def video_feed():
     return Response(generate_camera(VideoCamera()),mimetype='multipart/x-mixed-replace; boundary=frame')
+    
 
 #@app.route('/emotion')
 #def emotion():
@@ -20,7 +21,7 @@ def video_feed():
 
 @app.route('/capture')
 def capture_page():
-    return render_template("capture.html")
+    return render_template("capture.html", emotion = recognize_emotions, playlist)
 
 if __name__=="__main__":
     app.run(debug=True, port=5000)
