@@ -7,9 +7,9 @@ from datetime import *
 def generate_camera(camera):
     end_time = datetime.now() + timedelta(seconds=5)
     while datetime.now() < end_time:
-        frame = camera.get_frame()
+        frame,image = camera.get_frame()
         yield (b"--frame\r\n" b"Content-Type:image/jpeg\r\n\r\n" + frame + b"\r\n\r\n")
-    dominant_emotion=recognize_emotions(frame)
+    dominant_emotion=recognize_emotions(image)
     return_emotion(dominant_emotion)
      
 
